@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+@theme {
+  --color-bgc: #020617;
+  --color-card: #0f172a;
+  --color-grad: bg-linear-to-r from-violet-500 to-blue-500;
+}
