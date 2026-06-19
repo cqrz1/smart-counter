@@ -17,16 +17,28 @@ let totalDecremeant = 0;
 let maximum = 100;
 
 // Initial render
-showContent(current, count);
-showTotal(totalInc, totalIncrement);
-showTotal(totalDec, totalDecremeant);
 showTotal(maxLimit, maximum);
+
+// localStorage
+//count
+let localCount = localStorage.getItem("count");
+count = Number(localCount) || 0;
+showContent(current, count);
+//totalIncrement
+let localIncrement = localStorage.getItem("totalIncrement");
+totalIncrement = Number(localIncrement) || 0;
+showTotal(totalInc, totalIncrement);
+//totalDecrement
+let localDecrement = localStorage.getItem("totalDecrement");
+totalDecremeant = Number(localDecrement) || 0;
+showTotal(totalDec, totalDecremeant);
 updateStatus();
 
 // Increase buttons
 for (let i = 0; i < btnInc.length; i++) {
   btnInc[i].addEventListener("click", () => {
     checkMax();
+    localStorage.setItem("count", count);
   });
 }
 
@@ -34,6 +46,7 @@ for (let i = 0; i < btnInc.length; i++) {
 for (let i = 0; i < btnDec.length; i++) {
   btnDec[i].addEventListener("click", () => {
     checkZero();
+    localStorage.setItem("count", count);
   });
 }
 
@@ -41,17 +54,18 @@ for (let i = 0; i < btnDec.length; i++) {
 for (let i = 0; i < btnRest.length; i++) {
   btnRest[i].addEventListener("click", () => {
     count = 0;
+    localStorage.setItem("count", count);
     showContent(current, count);
     updateStatus();
   });
 }
-
 // Generate a random value between 0 and 100
 btnRandom.addEventListener("click", () => {
   let randomNumber = Math.floor(Math.random() * 101);
-
+  
   count = randomNumber;
-
+  
+  localStorage.setItem("count", count);
   showContent(current, count);
   updateStatus();
 });
@@ -68,7 +82,8 @@ function checkZero() {
   if (count > 0) {
     count--;
     totalDecremeant++;
-
+    
+    localStorage.setItem("totalDecrement", totalDecremeant);
     showTotal(totalDec, totalDecremeant);
     showContent(current, count);
     updateStatus();
@@ -80,7 +95,7 @@ function checkMax() {
   if (count < maximum) {
     count++;
     totalIncrement++;
-
+    localStorage.setItem("totalIncrement", totalIncrement);
     showTotal(totalInc, totalIncrement);
     showContent(current, count);
     updateStatus();
@@ -101,4 +116,5 @@ function updateStatus() {
   } else {
     statusMessage.innerText = "You're doing great! 🔥";
   }
-}
+  
+}‍
