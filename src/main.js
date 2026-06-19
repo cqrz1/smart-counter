@@ -117,4 +117,4 @@ function updateStatus() {
     statusMessage.innerText = "You're doing great! 🔥";
   }
   
-}‍
+}
