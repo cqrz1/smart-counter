@@ -4,57 +4,73 @@ A modern and interactive counter application built with Vanilla JavaScript, Tail
 
 ## Features
 
-* Increase Counter
-* Decrease Counter
-* Reset Counter
-* Random Number Generator
-* Maximum Limit (100)
-* Minimum Limit (0)
-* Total Increments Counter
-* Total Decrements Counter
-* Dynamic Status Messages
-* Clean UI with Tailwind CSS
+- Increase Counter
+- Decrease Counter
+- Reset Counter
+- Random Number Generator
+- Maximum Limit (100)
+- Minimum Limit (0)
+- Total Increments Counter
+- Total Decrements Counter
+- Dynamic Status Messages
+- Progress Tracking
+- Recent Activity Section
+- Responsive Design (Mobile, Tablet, Desktop)
+- Clean UI with Tailwind CSS
 
 ## Built With
 
-* HTML5
-* Tailwind CSS
-* JavaScript (Vanilla JS)
-* Vite
+- HTML5
+- Tailwind CSS
+- JavaScript (Vanilla JS)
+- Vite
 
-## Version
+## Current Version
+
+### v1.1
+
+#### New Improvements
+
+- Improved mobile responsiveness
+- Optimized tablet layout
+- Redesigned stats section
+- Enhanced component organization
+- Better user experience across devices
+- Refactored layout structure
+
+## Previous Release
 
 ### v1.0
 
-First stable release of Smart Counter.
-
 Implemented:
 
-* Counter functionality
-* Maximum and minimum limits
-* Random number generation
-* Increment and decrement statistics
-* Dynamic status system
-* UI improvements and code refactoring
+- Counter functionality
+- Maximum and minimum limits
+- Random number generation
+- Increment and decrement statistics
+- Dynamic status system
 
 ## What I Learned
 
-* DOM Manipulation
-* Event Handling
-* Loops and Functions
-* State Management
-* Reusable Functions
-* Code Refactoring
-* Git & GitHub Workflow
+- DOM Manipulation
+- Event Handling
+- Functions and Reusability
+- State Management
+- Responsive Design
+- Mobile-First Thinking
+- Code Refactoring
+- Git & GitHub Workflow
+- Versioning & Releases
 
 ## Future Improvements
 
-* Local Storage Support
-* Dark / Light Mode
-* Keyboard Shortcuts
-* History Tracking
-* Export / Import Data
+### v1.2 Roadmap
+
+- Local Storage Support
+- Theme Persistence
+- Dynamic Progress Bar
+- Enhanced Recent Activity System
 
 ## Author
 
-Abdullah Hassan
+**Abdullah Hassan**
