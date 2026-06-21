@@ -9,29 +9,36 @@ let totalInc = document.getElementById("totalInc");
 let totalDec = document.getElementById("totalDec");
 let maxLimit = document.getElementById("maxLimit");
 let statusMessage = document.getElementById("statusMessage");
+let progressTextDom = document.getElementById("progText");
+let progressBar = document.getElementById("progBar");
 
 // App state
 let count = 0;
 let totalIncrement = 0;
 let totalDecremeant = 0;
 let maximum = 100;
-
+let progressText = 0;
 // Initial render
 showTotal(maxLimit, maximum);
 
 // localStorage
-//count
+
+// count‍
 let localCount = localStorage.getItem("count");
 count = Number(localCount) || 0;
 showContent(current, count);
+updateProgress();
+
 //totalIncrement
 let localIncrement = localStorage.getItem("totalIncrement");
 totalIncrement = Number(localIncrement) || 0;
 showTotal(totalInc, totalIncrement);
+
 //totalDecrement
 let localDecrement = localStorage.getItem("totalDecrement");
 totalDecremeant = Number(localDecrement) || 0;
 showTotal(totalDec, totalDecremeant);
+
 updateStatus();
 
 // Increase buttons
@@ -56,17 +63,19 @@ for (let i = 0; i < btnRest.length; i++) {
     count = 0;
     localStorage.setItem("count", count);
     showContent(current, count);
+    updateProgress();
     updateStatus();
   });
 }
 // Generate a random value between 0 and 100
 btnRandom.addEventListener("click", () => {
   let randomNumber = Math.floor(Math.random() * 101);
-  
+
   count = randomNumber;
-  
+
   localStorage.setItem("count", count);
   showContent(current, count);
+  updateProgress();
   updateStatus();
 });
 
@@ -82,10 +91,11 @@ function checkZero() {
   if (count > 0) {
     count--;
     totalDecremeant++;
-    
+
     localStorage.setItem("totalDecrement", totalDecremeant);
     showTotal(totalDec, totalDecremeant);
     showContent(current, count);
+    updateProgress();
     updateStatus();
   }
 }
@@ -98,8 +108,23 @@ function checkMax() {
     localStorage.setItem("totalIncrement", totalIncrement);
     showTotal(totalInc, totalIncrement);
     showContent(current, count);
+    updateProgress();
     updateStatus();
   }
+}
+
+function progressTexts() {
+  progressText = (count / maximum) * 100;
+  progressTextDom.innerText = `${Math.floor(progressText)}%`;
+}
+
+function progressBars() {
+  progressBar.style.width = `${progressText}%`;
+}
+
+function updateProgress() {
+  progressTexts();
+  progressBars();
 }
 
 // Small helper for updating stats values
@@ -116,5 +141,4 @@ function updateStatus() {
   } else {
     statusMessage.innerText = "You're doing great! 🔥";
   }
-  
 }
